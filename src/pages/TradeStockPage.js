@@ -17,46 +17,33 @@ const TradeStockPage = () => {
   const REALM_APP_ID = "application-0-duvkpwv";  // Replace with your MongoDB Realm App ID
   const app = new Realm.App({ id: REALM_APP_ID });
 
-  // Fetch stock price when the symbol changes with retry logic
+  // Fetch stock price when the symbol changes
   useEffect(() => {
     const fetchPrice = async () => {
-      if (!symbol) {
-        setPrice(null);
-        setError('');
-        return;
-      }
-
-      const retryFetch = async (retries = 3) => {
+      if (symbol) {
         try {
           const response = await axios.get(`https://finnhub.io/api/v1/quote`, {
             params: {
               symbol: symbol,
-              token: 'creimn1r01qnd5cvgq40creimn1r01qnd5cvgq4g', // Replace with your Finnhub API key
-            },
+              token: 'creimn1r01qnd5cvgq40creimn1r01qnd5cvgq4g' // Replace with your Finnhub API key
+            }
           });
 
           if (response.data && response.data.c) {
             setPrice(response.data.c);
             setError('');
-          } else if (retries > 0) {
-            setError('Symbol not found. Retrying...');
-            return await retryFetch(retries - 1);
           } else {
             setPrice(null);
-            setError('Stock symbol not found after retries.');
+            setError('Stock symbol not found.');
           }
         } catch (error) {
-          if (retries > 0) {
-            setError('Network issue, retrying...');
-            return await retryFetch(retries - 1);
-          } else {
-            setPrice(null);
-            setError('Failed to fetch stock price. Please check your connection or stock symbol.');
-          }
+          setPrice(null);
+          setError('Failed to fetch stock price. Please check the stock symbol.');
         }
-      };
-
-      retryFetch();
+      } else {
+        setPrice(null);
+        setError('');
+      }
     };
 
     fetchPrice();
