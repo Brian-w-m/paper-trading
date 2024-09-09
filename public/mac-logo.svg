@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 2000 2000" width="2000" height="2000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #252525;
+      }
+    </style>
+  </defs>
+  <path id="black-logomark" class="cls-1" d="M1000,14.23C455.57,14.23,14.23,455.57,14.23,1000S455.57,1985.77,1000,1985.77s985.77-441.34,985.77-985.77S1544.43,14.23,1000,14.23Zm13.44,1483H986.56L770.85,1056.54h97.52L1000,1322.44l131.63-265.9h97.52Zm118.19-553.76L1000,677.56,868.37,943.46H770.85L986.56,502.78h26.88l215.71,440.68Z"/>
+</svg>

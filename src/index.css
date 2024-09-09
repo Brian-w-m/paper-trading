@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Add any global styles here */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+.App {
+  text-align: center;
+}
